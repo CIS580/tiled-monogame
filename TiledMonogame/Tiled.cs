@@ -304,6 +304,8 @@ namespace Squared.Tiled
                                                     Stream stream = new MemoryStream(buffer, false);
                                                     if (compressor == "gzip")
                                                         stream = new GZipStream(stream, CompressionMode.Decompress, false);
+                                                    if (compressor == "zlib")
+                                                        stream = new ZlibStream(stream, CompressionMode.Decompress, false);
 
                                                     using (stream)
                                                     using (var br = new BinaryReader(stream))
